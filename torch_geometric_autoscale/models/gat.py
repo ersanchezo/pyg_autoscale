@@ -61,6 +61,6 @@ class GAT(ScalableGNN):
         x = self.convs[layer]((x, x[:adj_t.size(0)]), adj_t)
 
         if layer < self.num_layers - 1:
-            x = x.elu()
+            x = F.elu(x)
 
         return x
